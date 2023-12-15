@@ -1,7 +1,86 @@
-<h1>wholeworldcoding games</h1>
-<p>FULL GUI COMING SOON</p>
-<p> <a href="https://games.wholeworldcoding.com/games/slope/index.html"> SLOPE </a> | <a href="https://games.wholeworldcoding.com/games/just-fall/index.html"> JustFall.lol </a> | <a href="https://games.wholeworldcoding.com/games/paper-io-2/index.html"> Paper.io </a> |
-<a href="https://games.wholeworldcoding.com/games/rollyvortex/index.html"> Rolly Vortex </a> | <a href="https://games.wholeworldcoding.com/games/the-bunny-graveyard/index.html"> The Bunny Graveyard </a> | <a href="https://games.wholeworldcoding.com/games/fnaf/index.html"> Five Nights At Freddy's </a> | <a href="https://games.wholeworldcoding.com/games/portal-flash/index.html"> Portal (2D Flash) </a> | <a href="https://games.wholeworldcoding.com/games/half-life/index.html"> Half-Life </a>
-</p>
-<dialog id="d">  <embed width="1200" height="550" src="https://wwchat.glitch.me/"> </dialog> <a onclick="d.showModal()">PRESS HERE FOR AI</a>
-<p><i>Credit to 3KH0, ABC6782, and pixelsuft for supplying games.</i></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 20px;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      margin-bottom: 10px;
+      color: #666;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    dialog {
+      width: 80%;
+      max-width: 600px;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    i {
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>WholeWorldCoding Games</h1>
+  
+  <p>FULL GUI COMING SOON</p>
+
+  <p>
+    <a href="https://games.wholeworldcoding.com/games/slope/index.html">SLOPE</a> |
+    <a href="https://games.wholeworldcoding.com/games/just-fall/index.html">JustFall.lol</a> |
+    <a href="https://games.wholeworldcoding.com/games/paper-io-2/index.html">Paper.io</a> |
+    <a href="https://games.wholeworldcoding.com/games/rollyvortex/index.html">Rolly Vortex</a> |
+    <a href="https://games.wholeworldcoding.com/games/the-bunny-graveyard/index.html">The Bunny Graveyard</a> |
+    <a href="https://games.wholeworldcoding.com/games/fnaf/index.html">Five Nights At Freddy's</a> |
+    <a href="https://games.wholeworldcoding.com/games/portal-flash/index.html">Portal (2D Flash)</a> |
+    <a href="https://games.wholeworldcoding.com/games/half-life/index.html">Half-Life</a>
+  </p>
+
+  <dialog id="gameDialog">
+    <embed width="100%" height="100%" src="https://wwchat.glitch.me/">
+    <button onclick="document.getElementById('gameDialog').close()">Close</button>
+  </dialog>
+
+  <a onclick="document.getElementById('gameDialog').showModal()">PRESS HERE FOR AI</a>
+
+  <p><i>Credit to 3KH0, ABC6782, and pixelsuft for supplying games.</i></p>
+
+</body>
+</html>
