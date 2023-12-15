@@ -30,8 +30,10 @@
     }
 
     dialog {
-      width: 80%;
-      max-width: 600px;
+      width: 180vw; /* 180% of viewport width */
+      height: 160vh; /* 160% of viewport height */
+      max-width: 1200px; /* Maximum width */
+      max-height: 800px; /* Maximum height */
       padding: 20px;
       background-color: #fff;
       border: 1px solid #ccc;
@@ -84,12 +86,24 @@
     function openGameDialog(url) {
       const gameIframe = document.getElementById('gameIframe');
       gameIframe.setAttribute('src', url);
-      document.getElementById('gameDialog').showModal();
+
+      const dialog = document.getElementById('gameDialog');
+      dialog.style.width = Math.min(window.innerWidth * 1.8, 1200) + 'px';
+      dialog.style.height = Math.min(window.innerHeight * 1.6, 800) + 'px';
+
+      dialog.showModal();
     }
 
     function closeGameDialog() {
       document.getElementById('gameDialog').close();
     }
+
+    // Update dialog size when the window is resized
+    window.addEventListener('resize', function () {
+      if (document.getElementById('gameDialog').open) {
+        openGameDialog(document.getElementById('gameIframe').src);
+      }
+    });
   </script>
 
   <p><i>Credit to 3KH0, ABC6782, and pixelsuft for supplying games.</i></p>
