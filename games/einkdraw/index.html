@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    canvas {
+      display: block;
+      background: #fff;
+      touch-action: none;
+    }
+  </style>
+  <title>E-Ink Drawing App</title>
+</head>
+<body>
+  <canvas id="drawingCanvas"></canvas>
+
+  <script>
+    const canvas = document.getElementById('drawingCanvas');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+
+    function handleStart(event) {
+      isDrawing = true;
+      draw(event);
+    }
+
+    function handleMove(event) {
+      if (isDrawing) {
+        draw(event);
+      }
+    }
+
+    function handleEnd() {
+      isDrawing = false;
+    }
+
+    function draw(event) {
+      const { clientX, clientY } = event.touches ? event.touches[0] : event;
+      ctx.beginPath();
+      ctx.arc(clientX, clientY, 1, 0, 2 * Math.PI);
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    function initCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      canvas.addEventListener('mousedown', handleStart);
+      canvas.addEventListener('touchstart', handleStart);
+      canvas.addEventListener('mousemove', handleMove);
+      canvas.addEventListener('touchmove', handleMove);
+      canvas.addEventListener('mouseup', handleEnd);
+      canvas.addEventListener('touchend', handleEnd);
+    }
+
+    window.addEventListener('resize', initCanvas);
+    document.addEventListener('DOMContentLoaded', initCanvas);
+  </script>
+</body>
+</html>
