@@ -1,15 +1,35 @@
-<title>Animal Crossing: Wild World</title>
 <!doctype html>
 <html>
+
+<head>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        * {
+            font-family: monospace;
+        }
+        desmond-player {
+            /* Set your desired width and height */
+            width: your_width;
+            height: your_height;
+        }
+    </style>
+</head>
+
 <body>
     <desmond-player id="player"></desmond-player>
     <script src="https://cdn.jsdelivr.net/gh/Unzor/desmond/cdn/desmond.min.js"></script>
-  <script>
-      var player = document.getElementById("player");
-      player.loadURL("animalcrossingwildworld.nds", function(){
-         player.enableMicrophone();
-      })
-  </script>
+    <script>
+        var player = document.getElementById("player");
+        player.loadURL("animalcrossingwildworld.nds", function () {
+            player.enableMicrophone();
+        })
+    </script>
 </body>
-
+<p>[wholeworldcoding]</p>
 </html>
