@@ -1,0 +1,15 @@
+<title>Animal Crossing: Wild World</title>
+<!doctype html>
+<html>
+<body>
+    <desmond-player id="player"></desmond-player>
+    <script src="https://cdn.jsdelivr.net/gh/Unzor/desmond/cdn/desmond.min.js"></script>
+  <script>
+      var player = document.getElementById("player");
+      player.loadURL("animalcrossingwildworld.nds", function(){
+         player.enableMicrophone();
+      })
+  </script>
+</body>
+
+</html>
