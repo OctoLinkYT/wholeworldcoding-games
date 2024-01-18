@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: monospace;
       margin: 20px;
       background-color: #f4f4f4;
     }
 
     h1 {
       color: #333;
+      text-align: center;
     }
 
     p {
@@ -61,7 +62,7 @@
 </head>
 <body>
 
-  <h1>WholeWorldCoding Games</h1>
+  <h1>[wholeworldcoding]</h1>
   
   <p>FULL GUI COMING SOON</p>
 
@@ -84,20 +85,23 @@
   <dialog id="gameDialog">
     <embed width="100%" height="100%" id="gameIframe">
     <button onclick="closeGameDialog()">Close</button>
+    <button onclick="FullscreenURL()">Fullscreen</button>
   </dialog>
 
   <script>
     function openGameDialog(url) {
       const gameIframe = document.getElementById('gameIframe');
       gameIframe.setAttribute('src', url);
-
+      var ogurl = url;
       const dialog = document.getElementById('gameDialog');
       dialog.style.width = Math.min(window.innerWidth * 1.8, 1200) + 'px';
       dialog.style.height = Math.min(window.innerHeight * 1.6, 800) + 'px';
 
       dialog.showModal();
     }
-
+    function FullscreenURL() {
+      window.open(ogurl);
+    }
     function closeGameDialog() {
       document.getElementById('gameDialog').close();
     }
