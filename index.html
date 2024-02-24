@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: monospace;
+      font-family: Arial, sans-serif;
       margin: 20px;
-      color: black;
+      color: #333;
     }
 
     h1 {
       text-align: center;
-      padding: 70px 0;
+      margin: 40px 0;
+      font-size: 24px;
     }
 
     p {
@@ -22,6 +23,8 @@
 
     a {
       cursor: pointer;
+      color: #007bff;
+      text-decoration: none;
     }
 
     a:hover {
@@ -29,8 +32,8 @@
     }
 
     dialog {
-      width: 180vw; /* 180% of viewport width */
-      height: 160vh; /* 160% of viewport height */
+      width: 90vw; /* 90% of viewport width */
+      height: 80vh; /* 80% of viewport height */
       max-width: 1200px; /* Maximum width */
       max-height: 800px; /* Maximum height */
       padding: 20px;
@@ -47,6 +50,7 @@
       border: none;
       border-radius: 3px;
       cursor: pointer;
+      margin-right: 10px;
     }
 
     button:hover {
@@ -56,8 +60,14 @@
     i {
       color: #888;
     }
-    input {
-      font-family: monospace;
+
+    input[type="text"] {
+      font-family: Arial, sans-serif;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      width: 100%;
+      max-width: 400px;
     }
   </style>
 </head>
