@@ -69,15 +69,22 @@
       width: 100%;
       max-width: 400px;
     }
+    .fullScreen {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   </style>
 </head>
 <body>
-  <h1>󠀠 </h1>
+  <h1> </h1>
   <h1>[wholeworldcoding]</h1>
   <p><input id="searchTxt" placeholder="https://example.com"></p>
   <p>Scroll down to play...</p>
-  <h1>󠀠 </h1>
-  <h1>󠀠 </h1>
+  <h1> </h1>
+  <h1> </h1>
   <span>
     <a href="#" onclick="openGameDialog('https://games.wholeworldcoding.com/games/slope/index.html')">SLOPE</a> |
     <a href="#" onclick="openGameDialog('https://games.wholeworldcoding.com/games/just-fall/index.html')">JustFall.lol</a> |
@@ -92,30 +99,50 @@
     <a href="#" onclick="openGameDialog('https://games.wholeworldcoding.com/games/1v1lol/index.html')">1v1.lol</a> |
     <a href="#" onclick="openGameDialog('https://games.wholeworldcoding.com/games/animalcrossing/index.html')">Animal Crossing: Wild World</a> |
     <a href="#" onclick="openGameDialog('https://games.wholeworldcoding.com/games/minecraft/index.html')">Precision Client (minceraft)</a>
-    
-
   </span>
 
   <dialog id="gameDialog">
-    <embed width="100%" height="100%" id="gameIframe">
+    <embed width="100%" height="100%" id="gameIframe" allowfullscreen>
     <button onclick="closeGameDialog()">Close</button>
     <button onclick="FullscreenURL()">Fullscreen</button>
   </dialog>
 
   <script>
+    // Declare gameIframe globally
+    const gameIframe = document.getElementById('gameIframe');
+
     function openGameDialog(url) {
-      const gameIframe = document.getElementById('gameIframe');
       gameIframe.setAttribute('src', url);
-      var ogurl = url;
       const dialog = document.getElementById('gameDialog');
       dialog.style.width = Math.min(window.innerWidth * 1.8, 1200) + 'px';
       dialog.style.height = Math.min(window.innerHeight * 1.6, 800) + 'px';
-
       dialog.showModal();
     }
-    function FullscreenURL() {
-      window.open(ogurl);
+
+    function openFullscreen() {
+      if (gameIframe.requestFullscreen) {
+        gameIframe.requestFullscreen();
+      } else if (gameIframe.webkitRequestFullscreen) { /* Safari */
+        gameIframe.webkitRequestFullscreen();
+      } else if (gameIframe.msRequestFullscreen) { /* IE11 */
+        gameIframe.msRequestFullscreen();
+      }
     }
+
+    function FullscreenURL() {
+        document.getElementById('gameIframe').className = "fullScreen";
+        openFullscreen();
+         // Reload the iframe content after going fullscreen
+         setTimeout(function() {
+             gameIframe.src = gameIframe.src;
+          }, 1000); // Adjust the delay as needed
+    }
+    window.addEventListener('keyup', function(event) {
+        if (event.keyCode === 27) {
+        document.getElementById('gameIframe').classList.remove('fullScreen');
+        }
+    });
+
     function closeGameDialog() {
       document.getElementById('gameDialog').close();
     }
@@ -126,27 +153,27 @@
         openGameDialog(document.getElementById('gameIframe').src);
       }
     });
+
+    // Your keyup function remains unchanged
   </script>
+  <script src="https://cdn.jsdelivr.net/gh/FogNetwork/ABC/index.js"></script>
 <script>
-window.onkeyup = keyup;
+document.addEventListener('fullscreenchange', exitHandler);
+document.addEventListener('webkitfullscreenchange', exitHandler);
+document.addEventListener('mozfullscreenchange', exitHandler);
+document.addEventListener('MSFullscreenChange', exitHandler);
 
-//creates a global Javascript variable
-var inputTextValue;
-
-function keyup(e) {
-  //setting your input text to the global Javascript Variable for every key press
-  inputTextValue = e.target.value;
-
-  //listens for you to press the ENTER key, at which point your web address will change to the one you have input in the search box
-  if (e.keyCode == 13) {
-    var hashtagitsaurl = inputTextValue;
-    openGameDialog(hashtagitsaurl);
+function exitHandler() {
+  if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
+    // Document is not in fullscreen mode, remove the fullScreen class and close the dialog
+    const gameIframe = document.getElementById('gameIframe');
+    gameIframe.classList.remove('fullScreen');
+    document.getElementById('gameDialog').close();
   }
 }
+
 </script>
 
-
   <p><i>Credit to 3KH0, ABC6782, and pixelsuft for supplying games.</i></p>
-
 </body>
 </html>
