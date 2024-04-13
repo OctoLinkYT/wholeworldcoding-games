@@ -171,7 +171,14 @@ function exitHandler() {
     document.getElementById('gameDialog').close();
   }
 }
-
+document.addEventListener('keypress', function(event) {
+    // Check if the pressed key is 'p'
+    if (event.key === 'p') {
+        // Your action here
+        window.location.href = "https://google.com";
+    }
+});
+  
 </script>
 
   <p><i>Credit to 3KH0, ABC6782, and pixelsuft for supplying games.</i></p>
